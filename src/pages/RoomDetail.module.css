@@ -1,0 +1,37 @@
+.back { font-size: 13px; font-weight: 700; color: var(--accent); text-decoration: none; display: inline-block; margin-bottom: 12px; }
+.back:hover { text-decoration: underline; }
+
+.titleRow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.roomIcon { font-size: 44px; }
+.title { font-family: 'Sora', sans-serif; font-size: 24px; font-weight: 600; color: var(--text-dark); }
+.sub { font-size: 13px; color: var(--text-light); margin-top: 3px; }
+
+.addBtn {
+  margin-left: auto;
+  padding: 10px 20px; border-radius: 12px;
+  background: var(--accent); color: white; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+}
+.addBtn:hover { background: #d9633c; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.empty {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 14px; padding: 60px 20px; text-align: center;
+  color: var(--text-light); font-size: 15px;
+}
+
+.newDevice {
+  border: 2px dashed rgba(232,114,74,0.3);
+  border-radius: 16px; background: transparent;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; cursor: pointer; min-height: 120px;
+  font-size: 13px; font-weight: 700; color: var(--accent);
+  transition: all 0.2s;
+}
+.newDevice:hover { background: var(--accent-soft); border-color: var(--accent); }

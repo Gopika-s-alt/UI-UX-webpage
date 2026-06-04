@@ -1,0 +1,234 @@
+.page {
+  height: 100%;
+  min-height: calc(100vh - 0px);
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Full bleed hero ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url('/bg.jpeg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Soft warm overlay so text is readable */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 12, 8, 0.45);
+  z-index: 0;
+}
+
+/* ── Stat pills — top right ── */
+.statsRow {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  display: flex;
+  gap: 12px;
+  z-index: 2;
+}
+.statPill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  min-width: 88px;
+}
+.statNum {
+  font-family: 'Sora', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+.statLbl {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+  margin-top: 5px;
+  letter-spacing: 0.3px;
+}
+
+/* ── Center content ── */
+.center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.greeting {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+.sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 8px;
+}
+
+/* Door row */
+.doorRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+.doorLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 9px 18px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+.doorBtn {
+  padding: 9px 22px;
+  border-radius: 10px;
+  border: none;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lockBtn {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+.lockBtn:hover { background: rgba(255, 255, 255, 0.28); }
+.unlockBtn {
+  background: #e8724a;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(232, 114, 74, 0.5);
+}
+.unlockBtn:hover { background: #d9633c; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .title { font-size: 30px; }
+  .statsRow { top: 16px; right: 16px; gap: 8px; }
+  .statPill { padding: 10px 14px; min-width: 72px; }
+  .statNum { font-size: 22px; }
+}
+
+/* QR Scan Button */
+.qrButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  height: 92px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.qrButton span {
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.qrButton:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.2);
+}
+
+/* Scanner Popup */
+.scannerOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.scannerBox {
+  width: 420px;
+  padding: 24px;
+  border-radius: 24px;
+  background: rgba(18,18,18,0.92);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(18px);
+  color: white;
+}
+
+.scannerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scannerHeader h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.closeBtn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.scanText {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+}
+
+.qrWrapper {
+  overflow: hidden;
+  border-radius: 18px;
+  margin-top: 18px;
+}
+
+.resultBox {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+}
