@@ -1,0 +1,10 @@
+.header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 24px;
+}
+.title {
+  font-family: 'Sora', sans-serif;
+  font-size: 24px; font-weight: 600;
+  color: var(--text-dark); margin-bottom: 4px;
+}
+.sub { font-size: 14px; color: var(--text-light); }
