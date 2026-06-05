@@ -1,0 +1,98 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white: #ffffff;
+  --off-white: #f8f6f2;
+  --glass: rgba(255,255,255,0.72);
+  --glass-border: rgba(255,255,255,0.5);
+  --glass-strong: rgba(255,255,255,0.88);
+  --text-dark: #1a1a2e;
+  --text-mid: #444466;
+  --text-light: #7a7a9a;
+  --accent: #e8724a;
+  --accent-soft: rgba(232,114,74,0.15);
+  --teal: #3ab5b0;
+  --teal-soft: rgba(58,181,176,0.15);
+  --green: #4caf88;
+  --green-soft: rgba(76,175,136,0.15);
+  --amber: #f5a623;
+  --amber-soft: rgba(245,166,35,0.15);
+  --red: #e05c5c;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.18);
+  --radius: 18px;
+  --radius-sm: 10px;
+  --sidebar-w: 220px;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'Nunito', sans-serif;
+  color: var(--text-dark);
+  overflow: hidden;
+}
+
+/* Background: user places their blurred interior image here */
+body {
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Fallback gradient if no image */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(245,240,230,0.55) 0%,
+    rgba(220,235,240,0.45) 50%,
+    rgba(230,245,240,0.55) 100%);
+  z-index: 0;
+}
+
+#root { position: relative; z-index: 1; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+/* Utility */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.glass-strong {
+  background: var(--glass-strong);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+
+button { cursor: pointer; font-family: inherit; }
+input, select, textarea { font-family: inherit; }
+
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700;
+}
+.tag-green { background: var(--green-soft); color: var(--green); }
+.tag-amber { background: var(--amber-soft); color: var(--amber); }
+.tag-red   { background: rgba(224,92,92,0.15); color: var(--red); }
+.tag-teal  { background: var(--teal-soft); color: var(--teal); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(16px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease both; }

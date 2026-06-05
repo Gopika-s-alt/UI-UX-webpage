@@ -1,0 +1,17 @@
+.list { display: flex; flex-direction: column; gap: 12px; max-width: 600px; }
+.item { display: flex; align-items: flex-start; gap: 14px; padding: 18px 20px; animation: fadeUp 0.3s ease both; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.dotAmber { background: var(--amber); }
+.dotAccent { background: var(--accent); }
+.dotTeal { background: var(--teal); }
+.content { flex: 1; }
+.text { font-size: 14px; color: var(--text-dark); font-weight: 600; margin-bottom: 4px; }
+.time { font-size: 12px; color: var(--text-light); }
+.dismiss {
+  padding: 6px 14px; border-radius: 8px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  background: transparent; color: var(--text-mid);
+  font-size: 12px; font-weight: 700; cursor: pointer;
+}
+.dismiss:hover { background: rgba(224,92,92,0.08); border-color: rgba(224,92,92,0.3); color: var(--red); }
+.empty { text-align: center; padding: 60px; display: flex; flex-direction: column; align-items: center; gap: 12px; color: var(--text-light); font-size: 15px; }

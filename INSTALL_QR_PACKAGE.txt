@@ -1,0 +1,1 @@
+Run this command inside project terminal:\n\nnpm install react-qr-reader\n

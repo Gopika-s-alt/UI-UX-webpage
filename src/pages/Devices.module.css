@@ -1,0 +1,21 @@
+.filterRow { display: flex; gap: 8px; }
+.filterBtn {
+  padding: 8px 16px; border-radius: 20px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  background: transparent; font-size: 12px; font-weight: 700;
+  color: var(--text-light); cursor: pointer; transition: all 0.2s;
+}
+.filterActive { background: var(--accent); color: white; border-color: var(--accent); }
+
+.sections { display: flex; flex-direction: column; gap: 24px; }
+
+.section {}
+.roomHead { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.roomLabel { font-size: 15px; font-weight: 800; color: var(--text-dark); flex: 1; }
+.manageLink { font-size: 12px; font-weight: 700; color: var(--accent); text-decoration: none; }
+.manageLink:hover { text-decoration: underline; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+
+.empty { text-align: center; padding: 60px; color: var(--text-light); display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.empty a { color: var(--accent); }

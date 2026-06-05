@@ -1,0 +1,70 @@
+.addBtn {
+  padding: 10px 20px; border-radius: 12px;
+  background: var(--accent); color: white; border: none;
+  font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s;
+}
+.addBtn:hover { background: #d9633c; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  padding: 22px 20px;
+  text-decoration: none; color: inherit;
+  position: relative;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex; flex-direction: column; gap: 6px;
+  animation: fadeUp 0.4s ease both;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+.removeRoom {
+  position: absolute; top: 12px; right: 12px;
+  background: none; border: none; font-size: 12px;
+  color: #ccc; cursor: pointer; opacity: 0;
+  transition: opacity 0.2s;
+}
+.card:hover .removeRoom { opacity: 1; }
+.removeRoom:hover { color: var(--red); }
+
+.roomIcon { font-size: 36px; margin-bottom: 4px; }
+.roomName { font-size: 16px; font-weight: 800; color: var(--text-dark); }
+.roomSub { font-size: 12px; color: var(--text-light); }
+
+.statusRow { margin-top: 6px; }
+
+.deviceIcons { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
+.more { font-size: 11px; color: var(--text-light); font-weight: 700; }
+
+.newCard {
+  border: 2px dashed rgba(232,114,74,0.3);
+  border-radius: var(--radius);
+  background: transparent;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 8px; cursor: pointer;
+  transition: all 0.2s; min-height: 160px;
+}
+.newCard:hover { background: var(--accent-soft); border-color: var(--accent); }
+.newPlus { font-size: 30px; color: var(--accent); }
+.newLabel { font-size: 14px; font-weight: 700; color: var(--accent); }
+
+.iconGrid { display: flex; flex-wrap: wrap; gap: 8px; }
+.iconBtn {
+  width: 40px; height: 40px;
+  border-radius: 10px; border: 1.5px solid rgba(0,0,0,0.08);
+  background: #fafafa; font-size: 20px; cursor: pointer; transition: all 0.15s;
+}
+.iconBtn:hover { border-color: var(--accent); background: var(--accent-soft); }
+.iconSelected { border-color: var(--accent); background: var(--accent-soft); box-shadow: 0 0 0 2px rgba(232,114,74,0.3); }
+.editRoom {
+  position: absolute; top: 10px; right: 34px;
+  background: none; border: none; font-size: 12px;
+  color: #aaa; cursor: pointer; opacity: 0;
+  transition: opacity 0.2s;
+}
+.card:hover .editRoom { opacity: 1; }
+.editRoom:hover { color: var(--accent) !important; }
