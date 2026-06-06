@@ -24,11 +24,12 @@ const NAV = [
  
 ]
 
-export default function Sidebar() {
+export default function Sidebar({ open, onClose }) {
   const { notifications } = useHome()
   return (
-   <aside className={styles.sidebar}>
-   <div className={styles.brand}>
+   <aside className={`${styles.sidebar} ${open ? styles.sidebarOpen : ''}`}>
+  <div className={styles.brand}>
+  <button className={styles.closeBtn} onClick={onClose}>✕</button>
   <img src="/logo.jpg" alt="Logo" className={styles.logoImage} />
   <span className={styles.brandName}>SmartNest</span>
 </div>
