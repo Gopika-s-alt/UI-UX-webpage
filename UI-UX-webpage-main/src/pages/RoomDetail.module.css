@@ -35,3 +35,7 @@
   transition: all 0.2s;
 }
 .newDevice:hover { background: var(--accent-soft); border-color: var(--accent); }
+/* hide default number spinners */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type=number] { -moz-appearance: textfield; }

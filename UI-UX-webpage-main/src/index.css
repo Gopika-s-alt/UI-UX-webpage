@@ -105,3 +105,26 @@ button:active {
   transform: scale(0.97);
   transition: all 0.1s ease;
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #1e1e2e;
+    --glass: rgba(30,30,50,0.72);
+    --glass-border: rgba(255,255,255,0.1);
+    --glass-strong: rgba(30,30,50,0.88);
+    --text-dark: #f0f0ff;
+    --text-mid: #aaaacc;
+    --text-light: #7a7a9a;
+    --off-white: #16161e;
+  }
+
+  body {
+    background-image: none;
+  }
+
+  body::before {
+    background: linear-gradient(135deg,
+      rgba(20,20,40,0.95) 0%,
+      rgba(15,25,35,0.95) 50%,
+      rgba(20,35,30,0.95) 100%);
+  }
+}

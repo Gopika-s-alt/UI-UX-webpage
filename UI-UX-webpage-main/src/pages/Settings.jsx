@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import styles from './Settings.module.css'
 import { useHome } from '../context/HomeContext'
+import { Home } from 'lucide-react'
+
 
 export default function Settings() {
   const { homeName, setHomeName } = useHome()
@@ -15,7 +17,7 @@ export default function Settings() {
 
       <div className={styles.sections}>
         <div className={`${styles.section} glass`}>
-          <h3 className={styles.sectionTitle}>🏠 Home Settings</h3>
+          <h3 className={styles.sectionTitle}><Home size={18} style={{verticalAlign:'middle', marginRight:8}} />Home Settings</h3>
           <div className={styles.row}>
             <label className={styles.label}>Home Name</label>
             <input
@@ -48,13 +50,7 @@ export default function Settings() {
           ))}
         </div>
 
-        <div className={`${styles.section} glass`}>
-          <h3 className={styles.sectionTitle}>🖼️ Background Image</h3>
-          <p className={styles.bgNote}>
-            Place your blurred interior photo as <code>bg.jpg</code> inside the <code>/public</code> folder of this project.
-            The app will use it automatically as the background.
-          </p>
-        </div>
+      
       </div>
     </div>
   )

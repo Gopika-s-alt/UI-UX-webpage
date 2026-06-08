@@ -3,6 +3,7 @@ import { useHome } from '../context/HomeContext'
 import Modal from '../components/Modal'
 import PageHeader from '../components/PageHeader'
 import styles from './Members.module.css'
+import { UserCircle } from 'lucide-react'
 
 const ROLES = ['Admin', 'Full Access', 'Partial Access', 'View Only']
 
@@ -34,7 +35,7 @@ export default function Members() {
       <div className={styles.list}>
         {members.map(m => (
           <div key={m.id} className={`${styles.card} glass`}>
-            <span className={styles.avatar}>{m.avatar}</span>
+            <span className={styles.avatar}><UserCircle size={40} strokeWidth={1.5} color="#6b7280" /></span>
             <div className={styles.info}>
               <div className={styles.name}>{m.name}</div>
               <div className={styles.role}>{m.role}</div>

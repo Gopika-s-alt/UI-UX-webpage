@@ -61,7 +61,7 @@ export default function Devices() {
       {filtered.length === 0 ? (
         <div className={styles.empty}>
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" strokeWidth="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
-          <p>No devices found. <Link to="/rooms">Add devices via Rooms.</Link></p>
+          <p>No appliances found. <Link to="/rooms">Add appliances via Rooms.</Link></p>
         </div>
       ) : (
         <div className={styles.sections}>

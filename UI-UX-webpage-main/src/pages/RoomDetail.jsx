@@ -85,21 +85,34 @@ export default function RoomDetail() {
           />
 
           <label style={{ display:'block', marginTop:14, marginBottom:6 }}>Device Number</label>
-          <input
-            type="number"
-            min="0"
-            max="35"
-            value={devType}
-            onChange={e => setDevType(Number(e.target.value))}
-            style={{
-              width:'100%', padding:'10px 14px',
-              border:'1.5px solid rgba(0,0,0,0.1)',
-              borderRadius:10, fontSize:14,
-              fontFamily:'inherit', outline:'none',
-              background:'#fafafa'
-            }}
-          />
-
+          <div style={{ display:'flex', alignItems:'center', gap:0, border:'1.5px solid rgba(0,0,0,0.1)', borderRadius:10, overflow:'hidden', background:'#fafafa' }}>
+  <button
+    type="button"
+    onClick={() => setDevType(v => Math.max(0, v - 1))}
+    style={{ width:44, height:44, fontSize:20, border:'none', background:'transparent', cursor:'pointer', color:'#555', fontWeight:700 }}
+  >−</button>
+  <input
+    type="number"
+    min="0"
+    max="35"
+    value={devType}
+    onChange={e => {
+      const val = e.target.value === '' ? 0 : Math.min(35, Math.max(0, Number(e.target.value)))
+      setDevType(val)
+    }}
+    style={{
+      flex:1, textAlign:'center', padding:'10px 0',
+      border:'none', borderLeft:'1px solid rgba(0,0,0,0.08)', borderRight:'1px solid rgba(0,0,0,0.08)',
+      fontSize:15, fontFamily:'inherit', outline:'none',
+      background:'transparent', MozAppearance:'textfield'
+    }}
+  />
+  <button
+    type="button"
+    onClick={() => setDevType(v => Math.min(35, v + 1))}
+    style={{ width:44, height:44, fontSize:20, border:'none', background:'transparent', cursor:'pointer', color:'#555', fontWeight:700 }}
+  >＋</button>
+</div>
           <label style={{ display:'block', marginTop:14, marginBottom:6 }}>Device Name</label>
           <select
             value={devConn}
