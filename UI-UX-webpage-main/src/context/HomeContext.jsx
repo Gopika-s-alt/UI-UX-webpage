@@ -119,7 +119,6 @@ const [userName] = useState('Home Owner')
       powerPeriod, setPowerPeriod, powerData,
       homeName, setHomeName,
 userName, totalDevices, activeDevices,
-homeName, setHomeName,
       DEVICE_ICONS,
     }}>
       {children}
