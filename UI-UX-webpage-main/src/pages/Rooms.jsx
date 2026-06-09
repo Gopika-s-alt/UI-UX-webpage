@@ -93,10 +93,13 @@ export default function Rooms() {
         title="Rooms"
         subtitle={`${rooms.length} room${rooms.length !== 1 ? 's' : ''} in your home`}
         action={
-          <button className={styles.addBtn} onClick={() => setShowModal(true)}>
-            <Plus size={16} />
-            Add Room
-          </button>
+         <button
+  onClick={() => setShowModal(true)}
+ style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:12,border:'none',background:'#393a3b',color:'white',fontSize:'clamp(11px,2.5vw,13px)',fontWeight:700,cursor:'pointer',whiteSpace:'nowrap'}}
+>
+  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  Add Room
+</button>
         }
       />
 

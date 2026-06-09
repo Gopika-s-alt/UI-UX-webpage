@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import PageHeader from '../components/PageHeader'
 import styles from './Settings.module.css'
 import { useHome } from '../context/HomeContext'
-import { Home } from 'lucide-react'
+import { AlignCenter, Home } from 'lucide-react'
+
 
 
 export default function Settings() {
@@ -57,6 +58,31 @@ export default function Settings() {
 
       
       </div>
+     
+    <div style={{
+  marginTop:'24px',
+  display:'flex',
+  justifyContent:'center'
+}}>
+  <span
+onClick={() => {
+  if(window.confirm('Are you sure you want to logout?')) {
+    localStorage.clear()
+    sessionStorage.clear()
+    window.location.href = '/login'
+  }
+}}
+    style={{
+      color:'#ef4444',
+      fontSize:'16px',
+      fontWeight:'700',
+      cursor:'pointer',
+      
+    }}
+  >
+    Logout
+  </span>
+</div>
     </div>
   )
 }
