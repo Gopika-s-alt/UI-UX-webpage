@@ -21,10 +21,15 @@ export default function Settings() {
           <div className={styles.row}>
             <label className={styles.label}>Home Name</label>
             <input
-              className={styles.input}
-              value={homeName}
-              onChange={e => setHomeName(e.target.value)}
-            />
+  className={styles.input}
+  defaultValue={homeName}
+  onKeyDown={e => {
+    if (e.key === 'Enter') {
+      setHomeName(e.target.value)
+      e.target.blur()
+    }
+  }}
+/>
           </div>
         </div>
 
