@@ -18,7 +18,7 @@ export default function Devices() {
   return (
     <div>
       <PageHeader
-        title="All Devices"
+        title="All Appliances"
         subtitle={`${activeDevices} active of ${totalDevices} total`}
         action={
           <div className={styles.filterRow}>

@@ -65,3 +65,57 @@
 .body .btnPrimary:hover { background: #d9633c; }
 .body .btnSecondary { background: #f0f0f0; color: var(--text-mid); }
 .body .btnSecondary:hover { background: #e5e5e5; }
+@media (prefers-color-scheme: dark) {
+  .modal {
+    background: #1e1e2e !important;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .header {
+    border-bottom-color: rgba(255,255,255,0.08);
+  }
+
+  .title {
+    color: #f0f0ff;
+  }
+
+  .close {
+    background: rgba(255,255,255,0.08);
+    color: #aaaacc;
+  }
+
+  .body label {
+    color: #aaaacc;
+  }
+
+  .body input,
+  .body select {
+    background: #2a2a3e !important;
+    color: #f0f0ff !important;
+    border-color: rgba(255,255,255,0.12) !important;
+  }
+
+  .body input::placeholder {
+    color: #6a6a8a !important;
+  }
+
+  .body input:focus,
+  .body select:focus {
+    background: #32324a !important;
+    border-color: var(--accent) !important;
+  }
+
+  .body select option {
+    background: #2a2a3e;
+    color: #f0f0ff;
+  }
+
+  .body .btnSecondary {
+    background: #2a2a3e;
+    color: #aaaacc;
+  }
+
+  .body .btnSecondary:hover {
+    background: #32324a;
+  }
+}

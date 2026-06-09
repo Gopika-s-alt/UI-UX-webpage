@@ -70,25 +70,24 @@ export default function Stats() {
       {/* Header */}
   <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:24}}>
   <div>
-    <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(16px, 4vw, 24px)',fontWeight:600,color:'#1a1a2e'}}>{homeName || 'Home'}</h1>
-    <p style={{fontSize:'clamp(11px, 2.5vw, 14px)',color:'#7a7a9a'}}>Energy & device usage overview</p>
+    <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(16px, 4vw, 24px)',fontWeight:600,color:'var(--text-dark)'}}>{homeName || 'Home'}</h1>
+    <p style={{fontSize:'clamp(11px, 2.5vw, 14px)',color:'var(--text-light)'}}>Energy & device usage overview</p>
   </div>
   <div style={{display:'flex',gap:8,flexShrink:0}}>
-  <button
-    onClick={() => setScanOpen(true)}
-    style={{display:'flex',alignItems:'center',gap:6,padding:'8px 12px',borderRadius:12,border:'none',background:'#6B7280',color:'white',fontSize:'clamp(11px,2.5vw,14px)',fontWeight:700,cursor:'pointer'}}
-  >
-    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-    <span style={{display:'none',fontSize:14}}>Add Device</span>
-    <span style={{fontSize:14}}>Add Device</span>
-  </button>
-  <button
-    onClick={() => { if(window.confirm('Are you sure you want to logout?')) window.location.href = '/login' }}
-    style={{display:'flex',alignItems:'center',gap:6,padding:'8px 12px',borderRadius:12,border:'none',background:'#6B7280',color:'white',fontSize:'clamp(11px,2.5vw,14px)',fontWeight:700,cursor:'pointer'}}
-  >
-    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
-    Logout
-  </button>
+<button
+  onClick={() => setScanOpen(true)}
+  style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:12,border:'none',background:'#6B7280',color:'white',fontSize:'clamp(11px,2.5vw,13px)',fontWeight:700,cursor:'pointer',whiteSpace:'nowrap'}}
+>
+  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  Add Device
+</button>
+<button
+  onClick={() => { if(window.confirm('Are you sure you want to logout?')) window.location.href = '/login' }}
+  style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:12,border:'none',background:'#6B7280',color:'white',fontSize:'clamp(11px,2.5vw,13px)',fontWeight:700,cursor:'pointer',whiteSpace:'nowrap'}}
+>
+  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"/></svg>
+  Logout
+</button>
 </div>
       </div>
 
