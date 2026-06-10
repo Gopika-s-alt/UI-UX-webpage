@@ -1,0 +1,69 @@
+.statCards { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 14px; 
+  margin-bottom: 24px; 
+}
+
+.statCard {
+  padding: 20px 16px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 6px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.statIcon { font-size: 28px; }
+.statVal { font-family: 'Sora', sans-serif; font-size: 28px; font-weight: 600; }
+.statLbl { font-size: 12px; color: var(--text-light); font-weight: 600; }
+
+.charts { 
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 16px; 
+}
+
+.chart { padding: 20px 22px; }
+.chartWide { grid-column: 1 / -1; padding: 20px 22px; }
+.chartTitle { font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 16px; }
+
+/* ===== ONE SINGLE MOBILE BLOCK ===== */
+@media (max-width: 768px) {
+  .statCards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .statCard {
+    padding: 16px 10px;
+    aspect-ratio: unset;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .statVal {
+    font-size: 26px;
+  }
+
+  .statLbl {
+    font-size: 11px;
+    text-align: center;
+  }
+
+  .charts {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .chart,
+  .chartWide {
+    grid-column: 1 / -1;
+    padding: 14px 12px;
+  }
+
+  .chartTitle {
+    font-size: 13px;
+  }
+}

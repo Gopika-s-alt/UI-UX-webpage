@@ -1,0 +1,178 @@
+/* FILTER ROW */
+
+.filterRow{
+  display:flex;
+  gap:12px;
+
+  flex-wrap:wrap;
+}
+
+/* FILTER BUTTON */
+
+.filterBtn{
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  padding:12px 20px;
+
+  border:none;
+
+  border-radius:999px;
+
+  background:white;
+
+  font-size:14px;
+  font-weight:700;
+
+  color:#666;
+
+  cursor:pointer;
+
+  transition:0.3s ease;
+
+  box-shadow:0 4px 15px rgba(0,0,0,0.06);
+}
+
+/* HOVER */
+
+.filterBtn:hover{
+  transform:translateY(-2px);
+
+  box-shadow:0 8px 20px rgba(83, 76, 76, 0.12);
+}
+
+/* ICON */
+
+.filterBtn svg{
+  stroke-width:2.5;
+}
+
+/* ACTIVE BUTTON */
+
+.filterActive{
+  background:linear-gradient(135deg,'gray');
+
+  color:black;
+
+  box-shadow:0 8px 20px rgba(72, 72, 75, 0.35);
+}
+
+/* SECTIONS */
+
+.sections{
+  display:flex;
+  flex-direction:column;
+
+  gap:24px;
+}
+
+/* ROOM HEADER */
+
+.roomHead{
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  margin-bottom:16px;
+}
+
+.roomLabel{
+  font-size:16px;
+  font-weight:800;
+
+  color:var(--text-dark);
+
+  flex:1;
+}
+
+/* MANAGE LINK */
+
+.manageLink{
+  font-size:13px;
+  font-weight:700;
+
+  color:var(--accent);
+
+  text-decoration:none;
+
+  transition:0.2s ease;
+}
+
+.manageLink:hover{
+  text-decoration:underline;
+
+  transform:translateX(2px);
+}
+
+/* DEVICE GRID */
+
+.grid{
+  display:grid;
+
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+
+  gap:16px;
+}
+
+/* EMPTY STATE */
+
+.empty{
+  text-align:center;
+
+  padding:80px 20px;
+
+  color:var(--text-light);
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  gap:16px;
+}
+
+.empty svg{
+  width:54px;
+  height:54px;
+}
+
+.empty a{
+  color:var(--accent);
+
+  font-weight:700;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .filterRow{
+    width: auto;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .filterBtn{
+    padding: 7px 10px;
+    font-size: 10px;
+    white-space: nowrap;
+    gap: 5px;
+  }
+
+  .filterBtn svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media(max-width:480px){
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+}

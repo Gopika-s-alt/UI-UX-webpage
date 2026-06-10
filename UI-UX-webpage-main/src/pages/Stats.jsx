@@ -1,0 +1,176 @@
+import React, { useState, useRef, useEffect } from 'react'
+import { useHome } from '../context/HomeContext'
+import {
+  AreaChart, Area, BarChart, Bar, LineChart, Line,
+  XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
+} from 'recharts'
+import { Cpu, Zap, DoorOpen, Activity } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import styles from './Stats.module.css'
+
+
+const MONTHLY = [
+  { month: 'Jan', kwh: 420 }, { month: 'Feb', kwh: 380 }, { month: 'Mar', kwh: 350 },
+  { month: 'Apr', kwh: 310 }, { month: 'May', kwh: 340 }, { month: 'Jun', kwh: 410 },
+  { month: 'Jul', kwh: 460 }, { month: 'Aug', kwh: 440 },
+]
+
+const BY_ROOM = [
+  { room: 'Living', kwh: 120 }, { room: 'Bedroom', kwh: 85 },
+  { room: 'Kitchen', kwh: 140 }, { room: 'Study', kwh: 60 },
+]
+
+const WEEKLY = [
+  { day: 'Mon', kwh: 18 }, { day: 'Tue', kwh: 22 }, { day: 'Wed', kwh: 15 },
+  { day: 'Thu', kwh: 28 }, { day: 'Fri', kwh: 32 }, { day: 'Sat', kwh: 24 }, { day: 'Sun', kwh: 19 },
+]
+
+const TOOLTIP_STYLE = {
+  contentStyle: { background: 'rgba(255,255,255,0.97)', border: 'none', borderRadius: 10, boxShadow: '0 4px 20px rgba(0,0,0,0.12)' },
+  labelStyle: { fontWeight: 700, color: '#333' },
+}
+
+export default function Stats() {
+  const { totalDevices, activeDevices, rooms, homeName } = useHome()
+  const [scanOpen, setScanOpen] = useState(false)
+  const [showMore, setShowMore] = useState(false)
+  const navigate = useNavigate()
+  const videoRef = useRef(null)
+  const totalRooms = rooms.length
+
+  useEffect(() => {
+    if (scanOpen) {
+      navigator.mediaDevices.getUserMedia({ 
+  video: { facingMode: { ideal: 'environment' } } 
+})
+        .then(stream => {
+          if (videoRef.current) {
+            videoRef.current.srcObject = stream
+            videoRef.current.play()
+          }
+        })
+        .catch(err => alert('Camera not accessible: ' + err.message))
+    } else {
+      if (videoRef.current && videoRef.current.srcObject) {
+        videoRef.current.srcObject.getTracks().forEach(track => track.stop())
+      }
+    }
+  }, [scanOpen])
+
+  const statCards = [
+    { label: 'Total Devices', value: totalDevices, icon: Cpu,      color: '#ff4d4f' },
+    { label: 'Active Now',    value: activeDevices, icon: Activity, color: '#4caf88' },
+    { label: 'Rooms',         value: totalRooms,    icon: DoorOpen, color: '#3ab5b0' },
+    { label: 'Monthly kWh',   value: '440',         icon: Zap,      color: '#ff4d4f' },
+  ]
+
+  return (
+    <div>
+
+      {/* Header */}
+  <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:24}}>
+  <div>
+    <h1 style={{fontFamily:'Sora,sans-serif',fontSize:'clamp(16px, 4vw, 24px)',fontWeight:600,color:'var(--text-dark)'}}>{homeName || 'Home'}</h1>
+    <p style={{fontSize:'clamp(11px, 2.5vw, 14px)',color:'var(--text-light)'}}>Energy & device usage overview</p>
+  </div>
+  <div style={{
+  display:'flex',
+  justifyContent:'flex-end',
+  flexShrink:0
+}}>
+<button
+  onClick={() => setScanOpen(true)}
+  style={{display:'flex',alignItems:'center',gap:6,padding:'8px 14px',borderRadius:12,border:'none',background:'#393a3b',color:'white',fontSize:'clamp(11px,2.5vw,13px)',fontWeight:700,cursor:'pointer',whiteSpace:'nowrap'}}
+>
+  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  Add Device
+</button>
+
+</div>
+      </div>
+
+      {/* QR Scanner Popup */}
+      {scanOpen && (
+        <div style={{position:'fixed',inset:0,background:'rgba(0,0,0,0.5)',backdropFilter:'blur(6px)',zIndex:100,display:'flex',alignItems:'center',justifyContent:'center'}}>
+          <div style={{background:'white',borderRadius:24,padding:36,width:360,textAlign:'center',boxShadow:'0 20px 60px rgba(0,0,0,0.25)'}}>
+            <div style={{fontSize:13,fontWeight:700,color:'#9ca3af',marginBottom:8,textTransform:'uppercase',letterSpacing:1}}>Add Device</div>
+            <h3 style={{fontSize:20,fontWeight:800,color:'#1a1a2e',marginBottom:8}}>Scan QR Code</h3>
+            <p style={{fontSize:13,color:'#888',marginBottom:24,lineHeight:1.6}}>Point your camera at the QR code printed on your smart device to add it to your home</p>
+            <div style={{width:260,margin:'0 auto 20px',borderRadius:16,overflow:'hidden',border:'3px solid #9ca3af'}}>
+              <video
+                ref={videoRef}
+                style={{width:'100%',height:260,objectFit:'cover',display:'block'}}
+                autoPlay
+                playsInline
+                muted
+              />
+            </div>
+            <p style={{fontSize:12,color:'#bbb',marginBottom:24}}>Make sure the QR code is well lit and fully visible</p>
+            <button
+              onClick={() => setScanOpen(false)}
+              style={{width:'100%',padding:13,borderRadius:12,border:'none',background:'#f0f0f0',color:'#666',fontSize:14,fontWeight:700,cursor:'pointer'}}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+         {/* Stat Cards — shown at bottom */}
+      <div className={styles.statCards} style={{marginTop:20}}>
+        {statCards.map(s => {
+          const Icon = s.icon
+          return (
+            <div key={s.label} className={`${styles.statCard} glass`}>
+              <Icon size={28} color={s.color} />
+              <span className={styles.statVal} style={{ color: s.color }}>{s.value}</span>
+              <span className={styles.statLbl}>{s.label}</span>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Charts — shown first */}
+      <div className={styles.charts}>
+
+        {/* Monthly Trend — always visible */}
+        <div className={`${styles.chartWide} glass`}>
+          <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16}}>
+            <h3 className={styles.chartTitle} style={{marginBottom:0}}>Monthly Trend (kWh)</h3>
+            <button
+              onClick={() => navigate('/graphs')}
+              style={{
+                padding:'6px 14px', borderRadius:20,
+                border:'1.5px solid rgba(66, 64, 64, 0.3)',
+                background: showMore ? '#2d6a4f' : 'transparent',
+                color: showMore ? 'white' : '#9ca3af',
+                fontSize:12, fontWeight:700, cursor:'pointer', transition:'all 0.2s'
+              }}
+            >
+              More →
+            </button>
+          </div>
+          <ResponsiveContainer width="100%" height={220}>
+            <LineChart data={MONTHLY} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
+              <defs>
+                <linearGradient id="mo" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%"  stopColor="#4caf88" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#4caf88" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,0,0,0.05)" />
+              <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#aaa' }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fontSize: 11, fill: '#aaa' }} axisLine={false} tickLine={false} />
+              <Tooltip {...TOOLTIP_STYLE} />
+              <Line type="monotone" dataKey="kwh" stroke="#4caf88" strokeWidth={2.5} dot={{ r: 4, fill: '#4caf88', strokeWidth: 0 }} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+
+
+      </div>
+
+     
+
+    </div>
+  )
+}
