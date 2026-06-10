@@ -100,7 +100,11 @@ export default function DeviceCard({ roomId, device }) {
                 fontFamily: 'inherit', fontSize: 14, fontWeight: 700
               }}
             >
+<<<<<<< HEAD
               🗑 Delete
+=======
+               Delete
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
             </button>
             <button
               onClick={handleSave}

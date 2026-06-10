@@ -68,7 +68,11 @@ export default function RoomDetail() {
           ))}
           <button className={styles.newDevice} onClick={() => setShowModal(true)}>
             <span style={{ fontSize: 24 }}>＋</span>
+<<<<<<< HEAD
             <span>Add Appliance</span>
+=======
+            <span>Add Device</span>
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
           </button>
         </div>
       )}

@@ -1,6 +1,10 @@
 .header {
   display: flex; justify-content: space-between; align-items: flex-start;
   margin-bottom: 24px;
+<<<<<<< HEAD
+=======
+  background: transparent;  /* add this */
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
 }
 .title {
   font-family: 'Sora', sans-serif;

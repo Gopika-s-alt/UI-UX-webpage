@@ -41,7 +41,18 @@ export default function Stats() {
   useEffect(() => {
     if (scanOpen) {
       navigator.mediaDevices.getUserMedia({ 
+<<<<<<< HEAD
   video: { facingMode: { ideal: 'environment' } } 
+=======
+  video: { 
+    facingMode: { ideal: 'environment' },
+    width: { ideal: 1920 },
+    height: { ideal: 1080 },
+    aspectRatio: { ideal: 1.777 },
+    focusMode: { ideal: 'continuous' },
+    advanced: [{ focusMode: 'continuous' }]
+  } 
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
 })
         .then(stream => {
           if (videoRef.current) {
@@ -96,6 +107,7 @@ export default function Stats() {
             <div style={{fontSize:13,fontWeight:700,color:'#9ca3af',marginBottom:8,textTransform:'uppercase',letterSpacing:1}}>Add Device</div>
             <h3 style={{fontSize:20,fontWeight:800,color:'#1a1a2e',marginBottom:8}}>Scan QR Code</h3>
             <p style={{fontSize:13,color:'#888',marginBottom:24,lineHeight:1.6}}>Point your camera at the QR code printed on your smart device to add it to your home</p>
+<<<<<<< HEAD
             <div style={{width:260,margin:'0 auto 20px',borderRadius:16,overflow:'hidden',border:'3px solid #9ca3af'}}>
               <video
                 ref={videoRef}
@@ -104,6 +116,17 @@ export default function Stats() {
                 playsInline
                 muted
               />
+=======
+            <div style={{width:'100%',margin:'0 auto 20px',borderRadius:16,overflow:'hidden',border:'3px solid #9ca3af'}}>
+             <video
+  ref={videoRef}
+  style={{width:'100%',height:300,objectFit:'cover',display:'block'}}
+  autoPlay
+  playsInline
+  muted
+  webkit-playsinline="true"
+/>
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
             </div>
             <p style={{fontSize:12,color:'#bbb',marginBottom:24}}>Make sure the QR code is well lit and fully visible</p>
             <button

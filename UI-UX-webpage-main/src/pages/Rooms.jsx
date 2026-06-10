@@ -166,10 +166,18 @@ export default function Rooms() {
           <IconGrid selected={editIcon} onSelect={setEditIcon} />
           <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
             <button
+<<<<<<< HEAD
              style={{ flex:1, padding:'11px', borderRadius:10, border:'none', background:'#f0f0f0', color:'#666', cursor:'pointer', fontFamily:'inherit', fontSize:14, fontWeight:700 }}
             >
               🗑 Delete
             </button>
+=======
+  onClick={handleDelete}
+  style={{ flex:1, padding:'11px', borderRadius:10, border:'none', background:'#f0f0f0', color:'#666', cursor:'pointer', fontFamily:'inherit', fontSize:14, fontWeight:700 }}
+>
+  Delete
+</button>
+>>>>>>> 559e999fecac457ca40e16a5137e62828d0bd244
             <button
               style={{ flex:1, padding:'11px', borderRadius:10, border:'none', background:'#6B7280', color:'white', cursor:'pointer', fontFamily:'inherit', fontSize:14, fontWeight:700 }}
               onClick={handleEdit}
